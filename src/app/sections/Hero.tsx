@@ -1,16 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from "next/image";
 import { FlipWords } from "../components/flip";
 import { AuroraBackground } from "../components/aurora";
 import { motion } from "framer-motion";
-import insta from "../../../public/icons/instagramm.png";
-import telegram from "../../../public/icons/telegramm.png";
-import twitter from "../../../public/icons/twitter.png";
-import wapp from "../../../public/icons/watsapp.png";
+import insta from "../../../public/icons/instagramm.svg";
+import telegram from "../../../public/icons/telegramm.svg";
+import wapp from "../../../public/icons/watsapp.svg";
 
 const words = ["Better", "Faster", "Beautiful", "Modern", ""];
 
 export default function Hero() {
+  useEffect(() => {
+    const script1 = document.createElement('script');
+    script1.innerHTML = `
+      window.embeddedChatbotConfig = {
+        chatbotId: "Qh42_oA8GUc5myY32Cp56",
+        domain: "www.chatbase.co"
+      }
+    `;
+    document.body.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.src = "https://www.chatbase.co/embed.min.js";
+    script2.setAttribute('chatbotId', 'Qh42_oA8GUc5myY32Cp56');
+    script2.setAttribute('domain', 'www.chatbase.co');
+    script2.defer = true;
+    document.body.appendChild(script2);
+
+    return () => {
+      document.body.removeChild(script1);
+      document.body.removeChild(script2);
+    };
+  }, []);
+
   return (
     <AuroraBackground>
       <motion.div
@@ -29,7 +51,7 @@ export default function Hero() {
           <FlipWords words={words} duration={2000} className="tracking-widest" /> <br />
 
           <span className="2xl:text-6xl md:text-4xl text-2xl md:leading-[3.5rem] relative top-1">
-            Connect with Us & See Our Work
+            Reach us & Chat with ProbuildAi
           </span> <br />
           <button className="relative top-10 inline-flex 2xl:h-[5.5rem] h-[3rem] overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
             <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E1BAFF_0%,#EAC173_50%,#EAC173_100%)]" />
@@ -39,18 +61,12 @@ export default function Hero() {
           </button>
         </div>
         <div className="flex justify-center items-center gap-x-7 relative top-11">
-        <a href="https://www.instagram.com/probuildlisbon/"><Image src={insta} alt="Instagram" height={45} width={45} /></a>
-        <a href="https://t.me/pavelprobuild"><Image src={telegram} alt="Telegram" height={45} width={45} /></a>
-        <a href="https://api.whatsapp.com/send/?phone=351913480138&text&type=phone_number&app_absent=0"><Image src={wapp} alt="WhatsApp" height={45} width={45} /></a>
+          <a href="https://www.instagram.com/probuildlisbon/"><Image src={insta} alt="Instagram" height={45} width={45} /></a>
+          <a href="https://t.me/pavelprobuild"><Image src={telegram} alt="Telegram" height={45} width={45} /></a>
+          <a href="https://api.whatsapp.com/send/?phone=351913480138&text&type=phone_number&app_absent=0"><Image src={wapp} alt="WhatsApp" height={45} width={45} /></a>
         </div>
       </motion.div>
-      <iframe
-  className="md:w-[60%] w-[90%] m-auto rounded-3xl mb-20 relative"
-  src="https://www.chatbase.co/chatbot-iframe/Qh42_oA8GUc5myY32Cp56"
-  width="100%"
-  style={{ height: "100%", maxHeight: "700px" }}
-  sandbox="allow-same-origin allow-scripts allow-popups"
-></iframe>
+
     </AuroraBackground>
   );
 }
