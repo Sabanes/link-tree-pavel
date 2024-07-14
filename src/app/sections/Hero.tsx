@@ -43,7 +43,7 @@ export default function Hero() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="relative h-full md:bottom-20 bottom-[6rem] md:pt-0 flex flex-col gap-5 items-center justify-center px-3"
+        className="relative h-full md:bottom-20 bottom-[4rem] md:pt-0 flex flex-col gap-5 items-center justify-center px-3"
       >
         <Image width={250} height={250} src="https://probuild.builders/wp-content/uploads/2024/07/logo.svg" alt="logo" className="pb-20 2xl:w-[500px] 2xl:h-[500px] 2xl:pt-0 md:w-[250px] md:h-[250px] w-[200px] h-[200px]" />
         <div className="2xl:text-8xl md:text-4xl text-3xl md:tracking-wider mx-auto font-normal text-white text-center">
