@@ -3,6 +3,10 @@ import Image from "next/image";
 import { FlipWords } from "../components/flip";
 import { AuroraBackground } from "../components/aurora";
 import { motion } from "framer-motion";
+import insta from "../../../public/icons/instagramm.png";
+import telegram from "../../../public/icons/telegramm.png";
+import twitter from "../../../public/icons/twitter.png";
+import wapp from "../../../public/icons/watsapp.png";
 
 const words = ["Better", "Faster", "Beautiful", "Modern", ""];
 
@@ -34,7 +38,18 @@ export default function Hero() {
             </span>
           </button>
         </div>
+        <div className="flex justify-center items-center gap-x-7 relative top-11">
+        <a href="https://www.instagram.com/probuildlisbon/"><Image src={insta} alt="Instagram" height={45} width={45} /></a>
+        <a href="https://t.me/pavelprobuild"><Image src={telegram} alt="Telegram" height={45} width={45} /></a>
+        <a href="https://api.whatsapp.com/send/?phone=351913480138&text&type=phone_number&app_absent=0"><Image src={wapp} alt="WhatsApp" height={45} width={45} /></a>
+        </div>
       </motion.div>
+      <iframe
+          className="md:w-[60%] w-[90%] m-auto rounded-3xl mb-20 relative  "
+          src="https://www.chatbase.co/chatbot-iframe/Qh42_oA8GUc5myY32Cp56"
+          width="100%"
+          style={{ height: "100%", maxHeight: "700px" }}
+        ></iframe>
     </AuroraBackground>
   );
 }
