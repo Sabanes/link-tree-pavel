@@ -45,11 +45,12 @@ export default function Hero() {
         </div>
       </motion.div>
       <iframe
-          className="md:w-[60%] w-[90%] m-auto rounded-3xl mb-20 relative  "
-          src="https://www.chatbase.co/chatbot-iframe/Qh42_oA8GUc5myY32Cp56"
-          width="100%"
-          style={{ height: "100%", maxHeight: "700px" }}
-        ></iframe>
+  className="md:w-[60%] w-[90%] m-auto rounded-3xl mb-20 relative"
+  src="https://www.chatbase.co/chatbot-iframe/Qh42_oA8GUc5myY32Cp56"
+  width="100%"
+  style={{ height: "100%", maxHeight: "700px" }}
+  sandbox="allow-same-origin allow-scripts allow-popups"
+></iframe>
     </AuroraBackground>
   );
 }
